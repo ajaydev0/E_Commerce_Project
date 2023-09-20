@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import '../HomePage.dart';
 
-Future Success_DialogBox(context) {
+Success_DialogBox(context) {
   return showDialog(
     barrierDismissible: false,
     context: context,

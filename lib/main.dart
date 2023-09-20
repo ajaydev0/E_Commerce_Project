@@ -1,3 +1,6 @@
+// import 'package:demo_project/Pages/HomePage.dart';
+// import 'package:demo_project/Pages/Sign_In_Page/Sign_In.dart';
+// import 'package:demo_project/Pages/Sign_Up.dart';
 import 'package:demo_project/Pages/Splash_Screen.dart';
 import 'package:flutter/material.dart';
 
@@ -12,8 +15,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       // routes: {
-      //   '/' : (context) => Splash_Screen(),
-
+      //   // '/Splash_Screen' : (context) => Splash_Screen(),
+      //   // '/Home_Screen': (context) => MyHomePage(),
+      //   // '/Login_Screen': (context) => SignIn(),
+      //   // '/SignUp_Screen': (context) => SignUp(),
       // },
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
