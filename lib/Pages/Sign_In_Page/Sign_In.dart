@@ -1,6 +1,11 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_const_constructors_in_immutables, avoid_print, dead_code, prefer_adjacent_string_concatenation, avoid_unnecessary_containers, camel_case_types, non_constant_identifier_names
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_const_constructors_in_immutables, avoid_print, dead_code, prefer_adjacent_string_concatenation, avoid_unnecessary_containers, camel_case_types, non_constant_identifier_names, file_names
 
 import 'package:demo_project/Ui/Ui_Content.dart';
+import 'package:demo_project/Ui/Widgets/Container_Widget.dart';
+import 'package:demo_project/Ui/Widgets/ElevatedButton_Widget.dart';
+import 'package:demo_project/Ui/Widgets/SizeBox_Widget.dart';
+import 'package:demo_project/Ui/Widgets/TextField_Widget.dart';
+import 'package:demo_project/Ui/Widgets/Text_Widget.dart';
 import 'package:flutter/material.dart';
 import '../../User_Data.dart';
 import '../Sign_Up.dart';
@@ -32,12 +37,10 @@ class _SignInState extends State<SignIn> {
             key: _FromKey,
             child: Column(
               children: [
-                SizedBox(
-                  height: 100,
-                ),
+                KsBox(h: 100),
                 Center(
-                  child: Container(
-                    height: 220,
+                  child: KContainer(
+                    h: 220,
                     decoration: BoxDecoration(
                         image: DecorationImage(
                       image:
@@ -46,21 +49,15 @@ class _SignInState extends State<SignIn> {
                     )),
                   ),
                 ),
-                SizedBox(
-                  height: 20,
-                ),
-                const Text(
-                  "Sign in",
-                  textAlign: TextAlign.right,
-                  style: TextStyle(
-                      fontSize: 45,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                TextFormField(
+                KsBox(h: 20),
+                KText(
+                    text: "Sign in",
+                    size: 45,
+                    color: appcolors.black,
+                    weight: FontWeight.bold,
+                    textAlign: TextAlign.right),
+                KsBox(h: 20),
+                KtextField(
                   onChanged: (value) {
                     setState(() {});
                   },
@@ -75,48 +72,26 @@ class _SignInState extends State<SignIn> {
                   },
                   controller: _InputEmail,
                   autovalidateMode: AutovalidateMode.onUserInteraction,
-
-                  // maxLength: 10,
-                  // maxLengthEnforcement: MaxLengthEnforcement.none,
-                  decoration: InputDecoration(
-                    prefixIconColor: appcolors.mainColor,
-                    // focusedBorder: OutlineInputBorder(
-                    //     borderSide: BorderSide(color: Colors.green)),
-
-                    enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(10),
-                        ),
-                        borderSide: BorderSide(color: appcolors.mainColor)),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(10),
-                      ),
-                    ),
-
-                    hintText: "test@gmail.com",
-                    labelText: "Email or username",
-                    prefixIcon: Icon(Icons.person),
-                    suffixIcon: KData.userEmail == _InputEmail.text
-                        ? Icon(
-                            Icons.check,
-                            color: appcolors.mainColor,
-                          )
-                        : _InputEmail.text != ""
-                            ? GestureDetector(
-                                onTap: () => _InputEmail.clear(),
-                                child: Icon(
-                                  Icons.close,
-                                  color: appcolors.red,
-                                ),
-                              )
-                            : null,
-                  ),
+                  hintText: "test@gmail.com",
+                  labelText: "Email or username",
+                  prefixIcon: Icons.person,
+                  suffixIcon: KData.userEmail == _InputEmail.text
+                      ? Icon(
+                          Icons.check,
+                          color: appcolors.mainColor,
+                        )
+                      : _InputEmail.text != ""
+                          ? GestureDetector(
+                              onTap: () => _InputEmail.clear(),
+                              child: Icon(
+                                Icons.close,
+                                color: appcolors.red,
+                              ),
+                            )
+                          : null,
                 ),
-                const SizedBox(
-                  height: 15,
-                ),
-                TextFormField(
+                KsBox(h: 15),
+                KtextField(
                   onChanged: (value) {
                     setState(() {});
                   },
@@ -134,141 +109,102 @@ class _SignInState extends State<SignIn> {
                   maxLength: 5,
                   // maxLengthEnforcement: MaxLengthEnforcement.none,
                   obscureText: passwordVisible,
-                  decoration: InputDecoration(
-                    suffixIconColor: appcolors.mainColor,
-                    prefixIconColor: appcolors.mainColor,
-                    enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(10),
-                        ),
-                        borderSide: BorderSide(color: appcolors.mainColor)),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(10),
-                      ),
-                    ),
-                    hintText: "@1234",
-                    labelText: "Password",
-                    prefixIcon: Icon(Icons.password),
-                    suffixIcon: Stack(
-                      clipBehavior: Clip.none,
-                      children: [
-                        Positioned(
-                          right: 30,
-                          child: IconButton(
-                            icon: Icon(
-                              KData.UserPass == _InputPass.text
-                                  ? Icons.check
-                                  // : _InputPass.text != ""
-                                  //     ? Icons.close
-                                  : null,
-                            ),
-                            onPressed: () {},
+                  hintText: "@1234",
+                  labelText: "Password",
+                  prefixIcon: Icons.password,
+                  suffixIcon: Stack(
+                    clipBehavior: Clip.none,
+                    children: [
+                      Positioned(
+                        right: 30,
+                        child: IconButton(
+                          icon: Icon(
+                            KData.UserPass == _InputPass.text
+                                ? Icons.check
+                                // : _InputPass.text != ""
+                                //     ? Icons.close
+                                : null,
                           ),
+                          onPressed: () {},
                         ),
-                        IconButton(
-                          icon: Icon(passwordVisible
-                              ? Icons.visibility_off
-                              : Icons.visibility),
-                          onPressed: () {
-                            setState(() {
-                              passwordVisible = !passwordVisible;
-                            });
-                          },
-                        ),
-                      ],
-                    ),
+                      ),
+                      IconButton(
+                        icon: Icon(passwordVisible
+                            ? Icons.visibility_off
+                            : Icons.visibility),
+                        onPressed: () {
+                          setState(() {
+                            passwordVisible = !passwordVisible;
+                          });
+                        },
+                      ),
+                    ],
                   ),
                 ),
-                const SizedBox(
-                  height: 5,
+                KsBox(
+                  h: 5,
                 ),
-                SizedBox(
-                  height: 40,
-                  width: 150,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      //
-                      // print(_InputEmail.text);
+                KeleButtonText(
+                  h: 40,
+                  w: 150,
+                  text: "Sign In",
+                  tSize: 18,
+                  tWeight: FontWeight.bold,
+                  onPressed: () {
+                    //
+                    // print(_InputEmail.text);
 
-                      //Validation Key
-                      if (_FromKey.currentState!.validate()) {
-                        if (_InputEmail.text == KData.userEmail &&
-                            KData.UserPass == _InputPass.text) {
-                          Success_DialogBox(
-                            context,
-                          );
-                        } else if (KData.userEmail != _InputEmail.text ||
-                            KData.UserPass != _InputPass.text) {
-                          error_DialogBox(
-                              context, _InputEmail.text, _InputPass.text);
-                        } else {
-                          error_DialogBox(
-                              context, _InputEmail.text, _InputPass.text);
-                        }
-                      } else if (_InputEmail.text == "" ||
-                          _InputPass.text == "") {
+                    //Validation Key
+                    if (_FromKey.currentState!.validate()) {
+                      if (_InputEmail.text == KData.userEmail &&
+                          KData.UserPass == _InputPass.text) {
+                        Success_DialogBox(
+                          context,
+                        );
+                      } else if (KData.userEmail != _InputEmail.text ||
+                          KData.UserPass != _InputPass.text) {
                         error_DialogBox(
                             context, _InputEmail.text, _InputPass.text);
-                        // error_DialogBox(context,);
+                      } else {
+                        error_DialogBox(
+                            context, _InputEmail.text, _InputPass.text);
                       }
-                      // return null;
-                      //Data Matching Logic
-                      // (KData.userEmail == _InputEmail.text) &&
-                      //         (KData.UserPass == _InputPass.text)
-                      //     ?
-                      //     : //Error Page
-                    },
-                    child: const Text(
-                      "Sign In",
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                  ),
+                    } else if (_InputEmail.text == "" ||
+                        _InputPass.text == "") {
+                      error_DialogBox(
+                          context, _InputEmail.text, _InputPass.text);
+                      // error_DialogBox(context,);
+                    }
+                    // return null;
+                    //Data Matching Logic
+                    // (KData.userEmail == _InputEmail.text) &&
+                    //         (KData.UserPass == _InputPass.text)
+                    //     ?
+                    //     : //Error Page
+                  },
                 ),
-                const SizedBox(
-                  height: 30,
-                ),
-                SizedBox(
-                  height: 25,
-                  width: 170,
-                  child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: appcolors.grey, // Background color
-                      ),
-                      onPressed: () {
-                        // Get.back();
-                        // Get.to(() => Forgot());
-                      },
-                      child: const Text(
-                        "Forgotten password?",
-                        style: TextStyle(fontSize: 14, color: appcolors.black),
-                      )),
-                ),
-                const SizedBox(
-                  height: 14,
-                ),
-                SizedBox(
-                  height: 25,
-                  width: 240,
-                  child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: appcolors.grey, // Background color
-                      ),
-                      onPressed: () {
-                        // Get.back();
-                        // Get.to(() => SignUp());
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => SignUp()));
-                      },
-                      child: const Text(
-                        "Don't have an account? Sign Up",
-                        style: TextStyle(fontSize: 14, color: appcolors.black),
-                      )),
-                ),
-                const SizedBox(
-                  height: 90,
-                ),
+                KsBox(h: 30),
+                KeleButtonText(
+                    h: 25,
+                    w: 170,
+                    tSize: 14,
+                    tColor: appcolors.black,
+                    backgroundColor: appcolors.grey,
+                    text: "Forgotten password?",
+                    onPressed: () {}),
+                KsBox(h: 14),
+                KeleButtonText(
+                    h: 25,
+                    w: 240,
+                    backgroundColor: appcolors.grey,
+                    tSize: 14,
+                    tColor: appcolors.black,
+                    text: "Don't have an account? Sign Up",
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => SignUp()));
+                    }),
+                KsBox(h: 90),
               ],
             ),
           ),

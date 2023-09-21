@@ -1,17 +1,20 @@
+// ignore_for_file: file_names, non_constant_identifier_names
+
 import 'package:demo_project/Ui/Widgets/SizeBox_Widget.dart';
 import 'package:flutter/material.dart';
 
 //ElevatedButtonText
-Widget KeleButtonText(
-    {required text,
-    h,
-    w,
-    required onPressed,
-    clipBehavior = Clip.none,
-    tSize,
-    tColor,
-    tWeight,
-    backgroundColor = Colors.blue}) {
+Widget KeleButtonText({
+  required text,
+  double? h,
+  double? w,
+  required onPressed,
+  double? tSize,
+  tColor,
+  tWeight,
+  backgroundColor = Colors.blue,
+  clipBehavior = Clip.none,
+}) {
   return KsBox(
     h: h,
     w: w,
