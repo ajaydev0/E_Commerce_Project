@@ -3,9 +3,16 @@
 // import 'package:demo_project/Pages/Sign_Up.dart';
 import 'package:demo_project/Pages/Splash_Screen.dart';
 import 'package:flutter/material.dart';
+// import 'package:device_preview/device_preview.dart';
+
+// void main() {
+//   runApp(DevicePreview(
+//     builder: (_) => MyApp(),
+//   ));
+// }
 
 void main() {
-  runApp(const MyApp());
+  runApp( MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -14,12 +21,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // routes: {
-      //   // '/Splash_Screen' : (context) => Splash_Screen(),
-      //   // '/Home_Screen': (context) => MyHomePage(),
-      //   // '/Login_Screen': (context) => SignIn(),
-      //   // '/SignUp_Screen': (context) => SignUp(),
-      // },
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
