@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_const_constructors_in_immutables, avoid_print, dead_code, prefer_adjacent_string_concatenation, avoid_unnecessary_containers
 import 'package:flutter/material.dart';
 
+import 'package:demo_project/Ui/Ui_Content.dart';
+
 class SignUp extends StatefulWidget {
   SignUp({super.key});
 
@@ -40,8 +42,10 @@ class _SignUpState extends State<SignUp> {
                     height: 220,
                     decoration: BoxDecoration(
                         image: DecorationImage(
-                            image: NetworkImage(
-                                "https://cdn-icons-png.flaticon.com/512/9858/9858082.png"))),
+                      image:
+                          //  NetworkImage(image.flash_Screen_Img),
+                          AssetImage(image.flash_Screen_Img),
+                    )),
                   ),
                 ),
 

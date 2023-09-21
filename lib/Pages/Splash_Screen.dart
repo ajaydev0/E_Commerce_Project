@@ -39,7 +39,7 @@ class _Splash_ScreenState extends State<Splash_Screen> {
               decoration: const BoxDecoration(
                   image: DecorationImage(
                 image:
-                    // NetworkImage(image.flash_Screen_Img),
+                    //  NetworkImage(image.flash_Screen_Img),
                     AssetImage(image.flash_Screen_Img),
               )),
             ),

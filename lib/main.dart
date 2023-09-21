@@ -1,18 +1,10 @@
-// import 'package:demo_project/Pages/HomePage.dart';
-// import 'package:demo_project/Pages/Sign_In_Page/Sign_In.dart';
-// import 'package:demo_project/Pages/Sign_Up.dart';
+// ignore_for_file: prefer_const_constructors
+
 import 'package:demo_project/Pages/Splash_Screen.dart';
 import 'package:flutter/material.dart';
-// import 'package:device_preview/device_preview.dart';
-
-// void main() {
-//   runApp(DevicePreview(
-//     builder: (_) => MyApp(),
-//   ));
-// }
 
 void main() {
-  runApp( MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -25,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const Splash_Screen(),
+      home: Splash_Screen(),
     );
   }
 }
