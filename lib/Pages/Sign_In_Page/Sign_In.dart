@@ -23,10 +23,8 @@ class _SignInState extends State<SignIn> {
   //Key
   final _FromKey = GlobalKey<FormState>();
   bool passwordVisible = true;
-
   final TextEditingController _InputEmail = TextEditingController();
   final TextEditingController _InputPass = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -90,7 +88,7 @@ class _SignInState extends State<SignIn> {
                             )
                           : null,
                 ),
-                KsBox(h: 15),
+                KsBox(h: 10),
                 KtextField(
                   onChanged: (value) {
                     setState(() {});

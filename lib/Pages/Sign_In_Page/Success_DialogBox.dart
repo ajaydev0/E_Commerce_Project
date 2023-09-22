@@ -1,7 +1,7 @@
 // ignore_for_file: non_constant_identifier_names
 
 import 'package:flutter/material.dart';
-import '../HomePage.dart';
+import '../Home_Page/HomePage.dart';
 
 Success_DialogBox(context) {
   return showDialog(

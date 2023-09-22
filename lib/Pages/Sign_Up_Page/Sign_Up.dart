@@ -5,12 +5,10 @@ import 'package:demo_project/Ui/Widgets/SizeBox_Widget.dart';
 import 'package:demo_project/Ui/Widgets/TextField_Widget.dart';
 import 'package:demo_project/Ui/Widgets/Text_Widget.dart';
 import 'package:flutter/material.dart';
-
 import 'package:demo_project/Ui/Ui_Content.dart';
 
 class SignUp extends StatefulWidget {
   SignUp({super.key});
-
   @override
   State<SignUp> createState() => _SignUpState();
 }
@@ -18,17 +16,11 @@ class SignUp extends StatefulWidget {
 class _SignUpState extends State<SignUp> {
   //Key
   final _FromKey = GlobalKey<FormState>();
-
   static TextEditingController userNameController = TextEditingController();
-
   static TextEditingController userPhoneController = TextEditingController();
-
   static TextEditingController userEmailController = TextEditingController();
-
   static TextEditingController userPasswordController = TextEditingController();
-
   bool passwordVisible = true;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,14 +43,12 @@ class _SignUpState extends State<SignUp> {
                     )),
                   ),
                 ),
-
                 KText(
                   text: "Sign Up",
                   textAlign: TextAlign.right,
                   size: 45,
                   color: appcolors.black,
                 ),
-
                 KsBox(h: 4),
                 Center(
                   child: KText(
@@ -66,37 +56,34 @@ class _SignUpState extends State<SignUp> {
                       size: 16,
                       color: Colors.grey),
                 ),
-
                 KsBox(h: 10),
                 KtextField(
                   controller: userNameController,
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   hintText: "First Name",
                   labelText: "First Name",
-
                   prefixIcon: Icons.person,
                   // maxLength: 10,
                   // maxLengthEnforcement: MaxLengthEnforcement.none,
                 ),
                 // Divider(),
                 KsBox(h: 10),
-                KtextField(
-                  controller: userPhoneController,
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                  hintText: "Phone Number",
-                  labelText: "Phone Number",
-                  prefixIcon: Icons.phone,
-                  // maxLength: 6,
-                  // maxLengthEnforcement: MaxLengthEnforcement.none,
-                ),
-                KsBox(h: 10),
+                // KtextField(
+                //   controller: userPhoneController,
+                //   autovalidateMode: AutovalidateMode.onUserInteraction,
+                //   hintText: "Phone Number",
+                //   labelText: "Phone Number",
+                //   prefixIcon: Icons.phone,
+                //   // maxLength: 6,
+                //   // maxLengthEnforcement: MaxLengthEnforcement.none,
+                // ),
+                // KsBox(h: 10),
                 KtextField(
                   controller: userEmailController,
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   hintText: "E-mail",
                   labelText: "E-mail",
                   prefixIcon: Icons.email,
-
                   // maxLength: 22,
                   // maxLengthEnforcement: MaxLengthEnforcement.none,
                 ),
@@ -122,7 +109,6 @@ class _SignUpState extends State<SignUp> {
                   obscureText: passwordVisible,
                 ),
                 KsBox(h: 5),
-
                 KsBox(
                   h: 40,
                   w: 150,
@@ -146,9 +132,7 @@ class _SignUpState extends State<SignUp> {
                     tWeight: FontWeight.bold,
                   ),
                 ),
-
                 KsBox(h: 20),
-
                 KsBox(
                   h: 25,
                   w: 240,
@@ -162,7 +146,6 @@ class _SignUpState extends State<SignUp> {
                       tColor: appcolors.black,
                       backgroundColor: appcolors.grey),
                 ),
-
                 KsBox(h: 50),
               ],
             ),
