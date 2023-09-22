@@ -1,4 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_const_constructors_in_immutables, avoid_print, dead_code, prefer_adjacent_string_concatenation, avoid_unnecessary_containers
+import 'package:demo_project/Ui/Widgets/Container_Widget.dart';
+import 'package:demo_project/Ui/Widgets/ElevatedButton_Widget.dart';
+import 'package:demo_project/Ui/Widgets/SizeBox_Widget.dart';
+import 'package:demo_project/Ui/Widgets/TextField_Widget.dart';
+import 'package:demo_project/Ui/Widgets/Text_Widget.dart';
 import 'package:flutter/material.dart';
 
 import 'package:demo_project/Ui/Ui_Content.dart';
@@ -14,13 +19,13 @@ class _SignUpState extends State<SignUp> {
   //Key
   final _FromKey = GlobalKey<FormState>();
 
-  TextEditingController userNameController = TextEditingController();
+  static TextEditingController userNameController = TextEditingController();
 
-  TextEditingController userPhoneController = TextEditingController();
+  static TextEditingController userPhoneController = TextEditingController();
 
-  TextEditingController userEmailController = TextEditingController();
+  static TextEditingController userEmailController = TextEditingController();
 
-  TextEditingController userPasswordController = TextEditingController();
+  static TextEditingController userPasswordController = TextEditingController();
 
   bool passwordVisible = true;
 
@@ -28,18 +33,16 @@ class _SignUpState extends State<SignUp> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 40.0),
+        child: KContainer(
+          padding: EdgeInsets.symmetric(horizontal: 40.0),
           child: Form(
             key: _FromKey,
             child: Column(
               children: [
-                SizedBox(
-                  height: 60,
-                ),
+                KsBox(h: 60),
                 Center(
-                  child: Container(
-                    height: 220,
+                  child: KContainer(
+                    h: 220,
                     decoration: BoxDecoration(
                         image: DecorationImage(
                       image:
@@ -49,173 +52,118 @@ class _SignUpState extends State<SignUp> {
                   ),
                 ),
 
-                const Text(
-                  "Sign Up",
+                KText(
+                  text: "Sign Up",
                   textAlign: TextAlign.right,
-                  style: TextStyle(
-                    fontSize: 45,
-                    color: Colors.black,
-                  ),
+                  size: 45,
+                  color: appcolors.black,
                 ),
 
-                const SizedBox(
-                  height: 4,
+                KsBox(h: 4),
+                Center(
+                  child: KText(
+                      text: "It's quick and easy.",
+                      size: 16,
+                      color: Colors.grey),
                 ),
-                const Center(
-                    child: Text(
-                  "It's quick and easy.",
-                  style: TextStyle(fontSize: 16, color: Colors.grey),
-                )),
 
-                const SizedBox(
-                  height: 15,
-                ),
-                TextFormField(
+                KsBox(h: 10),
+                KtextField(
                   controller: userNameController,
                   autovalidateMode: AutovalidateMode.onUserInteraction,
+                  hintText: "First Name",
+                  labelText: "First Name",
 
-                  maxLength: 10,
+                  prefixIcon: Icons.person,
+                  // maxLength: 10,
                   // maxLengthEnforcement: MaxLengthEnforcement.none,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(10),
-                      ),
-                    ),
-                    hintText: "First Name",
-                    labelText: "First Name",
-                    prefixIcon: Icon(Icons.person),
-                  ),
                 ),
-
                 // Divider(),
-                const SizedBox(
-                  height: 10,
-                ),
-                TextFormField(
+                KsBox(h: 10),
+                KtextField(
                   controller: userPhoneController,
                   autovalidateMode: AutovalidateMode.onUserInteraction,
-
-                  maxLength: 6,
+                  hintText: "Phone Number",
+                  labelText: "Phone Number",
+                  prefixIcon: Icons.phone,
+                  // maxLength: 6,
                   // maxLengthEnforcement: MaxLengthEnforcement.none,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(10),
-                      ),
-                    ),
-                    hintText: "Phone Number",
-                    labelText: "Phone Number",
-                    prefixIcon: Icon(Icons.phone),
-                  ),
                 ),
-
-                const SizedBox(
-                  height: 10,
-                ),
-                TextFormField(
+                KsBox(h: 10),
+                KtextField(
                   controller: userEmailController,
                   autovalidateMode: AutovalidateMode.onUserInteraction,
+                  hintText: "E-mail",
+                  labelText: "E-mail",
+                  prefixIcon: Icons.email,
 
-                  maxLength: 22,
+                  // maxLength: 22,
                   // maxLengthEnforcement: MaxLengthEnforcement.none,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(10),
-                      ),
-                    ),
-                    hintText: "E-mail",
-                    labelText: "E-mail",
-                    prefixIcon: Icon(Icons.email),
-                  ),
                 ),
-
-                const SizedBox(
-                  height: 10,
-                ),
-                TextFormField(
+                KsBox(h: 10),
+                KtextField(
                   controller: userPasswordController,
                   autovalidateMode: AutovalidateMode.onUserInteraction,
-
+                  hintText: "Password",
+                  labelText: "Password",
+                  prefixIcon: Icons.password,
+                  suffixIcon: IconButton(
+                    icon: Icon(passwordVisible
+                        ? Icons.visibility_off
+                        : Icons.visibility),
+                    onPressed: () {
+                      setState(() {
+                        passwordVisible = !passwordVisible;
+                      });
+                    },
+                  ),
                   maxLength: 8,
                   // maxLengthEnforcement: MaxLengthEnforcement.none,
                   obscureText: passwordVisible,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(10),
-                      ),
-                    ),
-                    hintText: "Password",
-                    labelText: "Password",
-                    prefixIcon: Icon(Icons.password),
-                    suffixIcon: IconButton(
-                      icon: Icon(passwordVisible
-                          ? Icons.visibility_off
-                          : Icons.visibility),
-                      onPressed: () {
-                        setState(() {
-                          passwordVisible = !passwordVisible;
-                        });
-                      },
-                    ),
+                ),
+                KsBox(h: 5),
+
+                KsBox(
+                  h: 40,
+                  w: 150,
+                  child: KeleButtonText(
+                    onPressed: () {
+                      // _FormKey.currentState?.validate();
+                      // var userName = userNameController.text.trim();
+                      // var userPhone = userPhoneController.text.trim();
+                      // var userEmail = userEmailController.text.trim();
+                      // var userPassword = userPasswordController.text.trim();
+
+                      // Firebase.instance
+                      //     .createUserWithEmailAndPassword(
+                      //         email: userEmail, password: userPassword)
+                      //     .then((Value) => {
+                      //           print("User Created"),
+                      //         });
+                    },
+                    text: "Sign Up",
+                    tSize: 18,
+                    tWeight: FontWeight.bold,
                   ),
                 ),
 
-                const SizedBox(
-                  height: 5,
-                ),
+                KsBox(h: 20),
 
-                SizedBox(
-                  height: 40,
-                  width: 150,
-                  child: ElevatedButton(
-                      onPressed: () {
-                        // _FormKey.currentState?.validate();
-                        // var userName = userNameController.text.trim();
-                        // var userPhone = userPhoneController.text.trim();
-                        // var userEmail = userEmailController.text.trim();
-                        // var userPassword = userPasswordController.text.trim();
-
-                        // Firebase.instance
-                        //     .createUserWithEmailAndPassword(
-                        //         email: userEmail, password: userPassword)
-                        //     .then((Value) => {
-                        //           print("User Created"),
-                        //         });
-                      },
-                      child: const Text(
-                        "Sign Up",
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
-                      )),
-                ),
-
-                const SizedBox(
-                  height: 20,
-                ),
-
-                SizedBox(
-                  height: 25,
-                  width: 240,
-                  child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.grey[100], // Background color
-                      ),
+                KsBox(
+                  h: 25,
+                  w: 240,
+                  child: KeleButtonText(
                       onPressed: () {
                         Navigator.pop(context);
                         // Get.back();
                       },
-                      child: const Text(
-                        "Already have an account? Log In",
-                        style: TextStyle(fontSize: 14, color: Colors.black),
-                      )),
+                      text: "Already have an account? Log In",
+                      tSize: 14,
+                      tColor: appcolors.black,
+                      backgroundColor: appcolors.grey),
                 ),
 
-                const SizedBox(
-                  height: 50,
-                )
+                KsBox(h: 50),
               ],
             ),
           ),
