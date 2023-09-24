@@ -12,11 +12,16 @@ Widget KtextField(
     validator,
     controller,
     maxLength,
+    prefixIconColor,
+    hintTextColor,
+    readOnly = false,
     maxLengthEnforcement,
     obscureText = false,
     autovalidateMode = AutovalidateMode.onUserInteraction,
+    border,
     prefixIconSize}) {
   return TextFormField(
+    readOnly: readOnly,
     onChanged: onChanged,
     obscureText: obscureText,
     maxLengthEnforcement: maxLengthEnforcement,
@@ -37,12 +42,44 @@ Widget KtextField(
         ),
       ),
       hintText: hintText,
+      hintStyle: TextStyle(color: hintTextColor),
       labelText: labelText,
       prefixIcon: Icon(
         prefixIcon,
         size: prefixIconSize,
+        color: prefixIconColor,
       ),
       suffixIcon: suffixIcon,
     ),
   );
+}
+
+//2
+Widget KtextField2(
+    {onChanged,
+    hintText = "Enter Anything",
+    labelText = "Email or username",
+    prefixIcon = Icons.person,
+    suffixIcon,
+    validator,
+    controller,
+    maxLength,
+    prefixIconColor,
+    hintTextColor,
+    readOnly = false,
+    maxLengthEnforcement,
+    obscureText = false,
+    autovalidateMode = AutovalidateMode.onUserInteraction,
+    border,
+    prefixIconSize}) {
+  return TextFormField(
+      readOnly: readOnly,
+      decoration: InputDecoration(
+          prefixIcon: Icon(
+            prefixIcon,
+            color: prefixIconColor,
+          ),
+          border: border,
+          hintStyle: TextStyle(color: hintTextColor),
+          hintText: hintText));
 }

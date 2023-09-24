@@ -1,5 +1,6 @@
 // ignore_for_file: non_constant_identifier_names
 
+import 'package:demo_project/Pages/Home_Page/Nav_Page.dart';
 import 'package:flutter/material.dart';
 import '../Home_Page/HomePage.dart';
 
@@ -58,7 +59,7 @@ Success_DialogBox(context) {
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                            builder: (BuildContext context) => MyHomePage(),
+                            builder: (BuildContext context) => Nav_Page(),
                           ),
                         );
                       },

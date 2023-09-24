@@ -37,7 +37,7 @@ class _SignInState extends State<SignIn> {
               children: [
                 KsBox(h: 100),
                 Center(
-                  child: KContainer(
+                  child: Kcontainer(
                     h: 220,
                     decoration: BoxDecoration(
                         image: DecorationImage(
@@ -48,7 +48,7 @@ class _SignInState extends State<SignIn> {
                   ),
                 ),
                 KsBox(h: 20),
-                KText(
+                Ktext(
                     text: "Sign in",
                     size: 45,
                     color: appcolors.black,

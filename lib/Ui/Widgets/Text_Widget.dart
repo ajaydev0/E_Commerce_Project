@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-Widget KText(
+Widget Ktext(
     {required text,
     color,
     double? size,

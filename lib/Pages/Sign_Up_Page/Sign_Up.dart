@@ -25,7 +25,7 @@ class _SignUpState extends State<SignUp> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        child: KContainer(
+        child: Kcontainer(
           padding: EdgeInsets.symmetric(horizontal: 40.0),
           child: Form(
             key: _FromKey,
@@ -33,7 +33,7 @@ class _SignUpState extends State<SignUp> {
               children: [
                 KsBox(h: 60),
                 Center(
-                  child: KContainer(
+                  child: Kcontainer(
                     h: 220,
                     decoration: BoxDecoration(
                         image: DecorationImage(
@@ -43,7 +43,7 @@ class _SignUpState extends State<SignUp> {
                     )),
                   ),
                 ),
-                KText(
+                Ktext(
                   text: "Sign Up",
                   textAlign: TextAlign.right,
                   size: 45,
@@ -51,7 +51,7 @@ class _SignUpState extends State<SignUp> {
                 ),
                 KsBox(h: 4),
                 Center(
-                  child: KText(
+                  child: Ktext(
                       text: "It's quick and easy.",
                       size: 16,
                       color: Colors.grey),

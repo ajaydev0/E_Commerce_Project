@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-Widget KContainer(
+Widget Kcontainer(
     {double? h, double? w, child, decoration, color, padding, margin}) {
   return Container(
     height: h,

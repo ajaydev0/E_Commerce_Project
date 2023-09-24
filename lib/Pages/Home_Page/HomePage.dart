@@ -1,91 +1,273 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_const_constructors_in_immutables, avoid_print, dead_code, prefer_adjacent_string_concatenation, avoid_unnecessary_containers
-import 'package:demo_project/Pages/Exit_HomePage.dart';
-import 'package:flutter/material.dart';
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-class MyHomePage extends StatelessWidget {
-  MyHomePage({super.key});
+import 'package:demo_project/Pages/Home_Page/HomePage_Widgets/Boxicon.dart';
+import 'package:demo_project/Ui/Ui_Content.dart';
+import 'package:demo_project/Ui/Widgets/Container_Widget.dart';
+import 'package:demo_project/Ui/Widgets/SizeBox_Widget.dart';
+import 'package:demo_project/Ui/Widgets/Text_Widget.dart';
+import 'package:flutter/material.dart';
+import '../../Ui/Widgets/TextField_Widget.dart';
+import '../Exit_HomePage.dart';
+import 'HomePage_Widgets/product1.dart';
+import 'HomePage_Widgets/product2.dart';
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
 
   @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  int activeIndigator = 0;
+  final PageController _controller = PageController();
+  @override
   Widget build(BuildContext context) {
+    var AppWidth = (MediaQuery.of(context).size.width) / 100;
+    var AppHeight = (MediaQuery.of(context).size.height) / 100;
     return WillPopScope(
       onWillPop: () {
         Exit_DialogBox(context);
         return Future.value(false);
       },
       child: Scaffold(
-          backgroundColor: Colors.grey[300],
-          appBar: AppBar(
-            // automaticallyImplyLeading: false,
-            backgroundColor: Colors.grey[300],
-            elevation: 0,
-            centerTitle: true,
-            title: RichText(
-                text: TextSpan(
-              text: "App",
-              style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.grey[700]),
-              children: [
-                TextSpan(
-                    text: " Name",
-                    style: TextStyle(fontSize: 19, color: Colors.blue))
-              ],
-            )),
-            actions: [
-              Padding(
-                padding: const EdgeInsets.only(right: 25),
-                child: Icon(
-                  Icons.notifications,
-                  color: Colors.grey[700],
-                ),
-              )
-            ],
-            leading: Padding(
-              padding: const EdgeInsets.only(left: 15),
-              child: Icon(
-                Icons.menu,
-                color: Colors.grey[700],
-              ),
-            ),
-          ),
-          drawer: Drawer(),
-          body: Column(
-            children: [
-              Padding(
-                padding: EdgeInsets.only(left: 15, right: 15),
-                child: Container(
-                  height: 50,
-                  padding: EdgeInsets.only(left: 20, right: 10),
-                  decoration: BoxDecoration(
-                    color: Colors.grey[200],
-                    borderRadius: BorderRadius.circular(30),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Kcontainer(
+              h: 260,
+              color: appcolors.white,
+              child: Stack(
+                children: [
+                  Kcontainer(
+                    h: 210,
+                    decoration: BoxDecoration(
+                        color: appcolors.blue400,
+                        borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(50),
+                            bottomRight: Radius.circular(50))),
                   ),
-                  child: TextField(
-                    readOnly: true,
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                      suffixIcon: Icon(
-                        Icons.search,
-                        color: Colors.blue,
-                        size: 25,
+                  Padding(
+                    padding: const EdgeInsets.only(top: 20, left: 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Ktext(
+                          text: "Ajay Dev",
+                          color: appcolors.white,
+                          weight: FontWeight.bold,
+                          size: 25,
+                        ),
+                        Row(
+                          children: [
+                            Kcontainer(
+                              h: 50,
+                              w: AppWidth * 40,
+                              decoration: BoxDecoration(
+                                  color: appcolors.white,
+                                  borderRadius: BorderRadius.circular(20)),
+                              child: Padding(
+                                padding: const EdgeInsets.only(
+                                  top: 3,
+                                  left: 5,
+                                ),
+                                child: KtextField2(
+                                  readOnly: true,
+                                  prefixIcon: Icons.search,
+                                  prefixIconColor: appcolors.black,
+                                  border: InputBorder.none,
+                                  hintText: "Search..",
+                                  hintTextColor: appcolors.black,
+                                ),
+                              ),
+                            ),
+                            KsBox(
+                              w: AppWidth * 2,
+                            ),
+                            Kcontainer(
+                              h: 50,
+                              w: AppWidth * 14,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  color: appcolors.white),
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.only(bottom: 2, right: 2),
+                                child: Icon(Icons.add_a_photo_outlined),
+                              ),
+                            ),
+                            KsBox(
+                              w: AppWidth * 5,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  Positioned(
+                    top: 80,
+                    left: AppWidth * 8,
+                    right: AppWidth * 8,
+                    child: Kcontainer(
+                      h: 180,
+                      // width: AppWidth * 80,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        // color: Colors.amber,
                       ),
-                      // prefixIcon: Icon(
-                      //   Icons.search,
-                      //   color: Colors.black87,
-                      //   size: 25,
-                      // ),
-                      hintText: "Serarch Here....",
-                      hintStyle: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 17,
+                      child: PageView(
+                        onPageChanged: (value) {
+                          setState(() {
+                            activeIndigator = value;
+                            // print(activeIndigator);
+                          });
+                        },
+                        controller: _controller,
+                        children: [
+                          products(context),
+                          products(context),
+                          products(context),
+                          products(context),
+                        ],
                       ),
                     ),
                   ),
-                ),
+                  //Indigator
+                  Positioned(
+                    top: 230,
+                    left: AppWidth * 40,
+                    child: Row(
+                      children: [
+                        Kcontainer(
+                          h: 10,
+                          w: 10,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: activeIndigator == 0
+                                ? appcolors.grey700
+                                : appcolors.grey400,
+                          ),
+                        ),
+                        KsBox(
+                          w: 5,
+                        ),
+                        Kcontainer(
+                          h: 10,
+                          w: 10,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: activeIndigator == 1
+                                ? appcolors.grey700
+                                : appcolors.grey400,
+                          ),
+                        ),
+                        KsBox(
+                          w: 5,
+                        ),
+                        Kcontainer(
+                          h: 10,
+                          w: 10,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: activeIndigator == 2
+                                ? appcolors.grey700
+                                : appcolors.grey400,
+                          ),
+                        ),
+                        KsBox(
+                          w: 5,
+                        ),
+                        Kcontainer(
+                          h: 10,
+                          w: 10,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: activeIndigator == 3
+                                ? appcolors.grey700
+                                : appcolors.grey400,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
-            ],
-          )),
+            ),
+            KsBox(
+              h: 5,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                BoxIcon(context: context, icon: Icons.discount, text: "Offers"),
+                BoxIcon(
+                    context: context, icon: Icons.category, text: "Category"),
+                BoxIcon(context: context, icon: Icons.compare, text: "Compare"),
+                BoxIcon(
+                    context: context,
+                    icon: Icons.new_releases,
+                    text: "Reviews"),
+              ],
+            ),
+            KsBox(
+              h: 5,
+            ),
+            Kcontainer(
+              // height: 450,
+              h: AppHeight * 48,
+              decoration: BoxDecoration(
+                  color: appcolors.grey200,
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(50),
+                      topRight: Radius.circular(50))),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        top: 10, left: 30, right: 30, bottom: 15),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Ktext(
+                          text: "New Collections",
+                          size: 20,
+                          weight: FontWeight.bold,
+                        ),
+                        Kcontainer(
+                            h: 30,
+                            w: 80,
+                            decoration: BoxDecoration(
+                                color: appcolors.blue300,
+                                borderRadius: BorderRadius.circular(20)),
+                            child: Center(
+                              child: Ktext(
+                                text: "View All",
+                                color: appcolors.black,
+                                weight: FontWeight.bold,
+                              ),
+                            )),
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: [
+                        productListView(),
+                        productListView(),
+                        productListView(),
+                        KsBox(
+                          w: 10,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
