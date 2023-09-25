@@ -1,4 +1,4 @@
-// ignore_for_file: non_constant_identifier_names
+// ignore_for_file: non_constant_identifier_names, file_names
 
 import 'package:flutter/material.dart';
 import '../../User_Data.dart';
@@ -57,12 +57,13 @@ error_DialogBox(context, [emailInput, passInput]) {
                   const SizedBox(
                     height: 20,
                   ),
-                  Container(
+                  SizedBox(
                     height: 40,
                     // width: 180,
                     child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          primary: Colors.red, // button Background color
+                          backgroundColor:
+                              Colors.red, // button Background color
                         ),
                         onPressed: () {
                           Navigator.pop(context);

@@ -3,7 +3,14 @@
 import 'package:flutter/material.dart';
 
 Widget Kcontainer(
-    {double? h, double? w, child, decoration, color, padding, margin}) {
+    {double? h,
+    double? w,
+    child,
+    decoration,
+    color,
+    padding,
+    margin,
+    alignment}) {
   return Container(
     height: h,
     width: w,
@@ -12,5 +19,6 @@ Widget Kcontainer(
     color: color,
     padding: padding,
     margin: margin,
+    alignment: alignment,
   );
 }

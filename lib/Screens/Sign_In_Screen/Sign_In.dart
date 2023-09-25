@@ -8,7 +8,8 @@ import 'package:demo_project/Ui/Widgets/TextField_Widget.dart';
 import 'package:demo_project/Ui/Widgets/Text_Widget.dart';
 import 'package:flutter/material.dart';
 import '../../User_Data.dart';
-import '../Sign_Up_Page/Sign_Up.dart';
+
+import '../Sign_Up_Screen/Sign_Up.dart';
 import 'Error_DialogBox.dart';
 import 'Success_DialogBox.dart';
 
@@ -41,9 +42,8 @@ class _SignInState extends State<SignIn> {
                     h: 220,
                     decoration: BoxDecoration(
                         image: DecorationImage(
-                      image:
-                          // NetworkImage(image.flash_Screen_Img),
-                          AssetImage(image.flash_Screen_Img),
+                      image: NetworkImage(image.flash_Screen_Img),
+                      // AssetImage(image.flash_Screen_Img),
                     )),
                   ),
                 ),

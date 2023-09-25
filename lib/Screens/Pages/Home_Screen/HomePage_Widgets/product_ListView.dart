@@ -1,11 +1,11 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, file_names
 
 import 'package:demo_project/Ui/Ui_Content.dart';
 import 'package:flutter/material.dart';
 
-import '../../../Ui/Widgets/Container_Widget.dart';
-import '../../../Ui/Widgets/SizeBox_Widget.dart';
-import '../../../Ui/Widgets/Text_Widget.dart';
+import '../../../../Ui/Widgets/Container_Widget.dart';
+import '../../../../Ui/Widgets/SizeBox_Widget.dart';
+import '../../../../Ui/Widgets/Text_Widget.dart';
 
 Widget productListView() {
   return Row(
@@ -38,23 +38,22 @@ Widget productListView() {
             Positioned(
               left: 10,
               top: 130,
-              child: Ktext(text: "Nike Air Max 2000"),
+              child: Ktext(text: "Nike Air Max 2000", weight: FontWeight.bold),
             ),
             Positioned(
               left: 10,
               top: 155,
               child: Kcontainer(
-                  h: 25,
-                  w: 70,
+                  h: 23,
+                  w: 65,
                   decoration: BoxDecoration(
                       color: appcolors.grey300,
                       borderRadius: BorderRadius.circular(5)),
                   child: Center(
                     child: Ktext(
-                      text: "6 Colors",
-                      color: appcolors.grey700,
-                      weight: FontWeight.bold,
-                    ),
+                        text: "6 Colors", color: appcolors.grey700, size: 13
+                        // weight: FontWeight.bold,
+                        ),
                   )),
             ),
             Positioned(

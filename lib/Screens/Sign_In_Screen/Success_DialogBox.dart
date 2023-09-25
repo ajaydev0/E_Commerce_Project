@@ -1,8 +1,8 @@
-// ignore_for_file: non_constant_identifier_names
+// ignore_for_file: non_constant_identifier_names, file_names
 
-import 'package:demo_project/Pages/Home_Page/Nav_Page.dart';
 import 'package:flutter/material.dart';
-import '../Home_Page/HomePage.dart';
+
+import '../Pages/Nav_Page.dart';
 
 Success_DialogBox(context) {
   return showDialog(
@@ -55,6 +55,7 @@ Success_DialogBox(context) {
                         backgroundColor: Colors.green, // Background color
                       ),
                       onPressed: () {
+                        // Nav();
                         // Navigator.pop(context);
                         Navigator.pushReplacement(
                           context,

@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_const_constructors_in_immutables, avoid_print, dead_code, prefer_adjacent_string_concatenation, avoid_unnecessary_containers
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_const_constructors_in_immutables, avoid_print, dead_code, prefer_adjacent_string_concatenation, avoid_unnecessary_containers, file_names, non_constant_identifier_names
 import 'package:demo_project/Ui/Widgets/Container_Widget.dart';
 import 'package:demo_project/Ui/Widgets/ElevatedButton_Widget.dart';
 import 'package:demo_project/Ui/Widgets/SizeBox_Widget.dart';
@@ -17,7 +17,7 @@ class _SignUpState extends State<SignUp> {
   //Key
   final _FromKey = GlobalKey<FormState>();
   static TextEditingController userNameController = TextEditingController();
-  static TextEditingController userPhoneController = TextEditingController();
+  // static TextEditingController userPhoneController = TextEditingController();
   static TextEditingController userEmailController = TextEditingController();
   static TextEditingController userPasswordController = TextEditingController();
   bool passwordVisible = true;
@@ -37,9 +37,8 @@ class _SignUpState extends State<SignUp> {
                     h: 220,
                     decoration: BoxDecoration(
                         image: DecorationImage(
-                      image:
-                          //  NetworkImage(image.flash_Screen_Img),
-                          AssetImage(image.flash_Screen_Img),
+                      image: NetworkImage(image.flash_Screen_Img),
+                      // AssetImage(image.flash_Screen_Img),
                     )),
                   ),
                 ),

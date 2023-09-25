@@ -1,24 +1,22 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, file_names
 
 import 'package:demo_project/Ui/Ui_Content.dart';
+import 'package:demo_project/Ui/Widgets/AppSize_MediaQuery.dart';
 import 'package:flutter/material.dart';
 
-import '../../../Ui/Widgets/Container_Widget.dart';
-import '../../../Ui/Widgets/ElevatedButton_Widget.dart';
-import '../../../Ui/Widgets/SizeBox_Widget.dart';
-import '../../../Ui/Widgets/Text_Widget.dart';
+import '../../../../Ui/Widgets/Container_Widget.dart';
+import '../../../../Ui/Widgets/ElevatedButton_Widget.dart';
+import '../../../../Ui/Widgets/SizeBox_Widget.dart';
+import '../../../../Ui/Widgets/Text_Widget.dart';
 
 Widget products(
   BuildContext context,
 ) {
-  var AppWidth = (MediaQuery.of(context).size.width) / 100;
-  var AppHeight = (MediaQuery.of(context).size.height) / 100;
-
   return Padding(
     padding: const EdgeInsets.all(8.0),
     child: Kcontainer(
         h: 30,
-        w: AppWidth * 5,
+        w: Kw(context: context, value: 5),
         decoration: BoxDecoration(
           boxShadow: [
             //upor nic
