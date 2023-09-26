@@ -1,5 +1,4 @@
 // ignore_for_file: prefer_const_constructors
-import 'package:demo_project/Screens/Home_Screen/HomePage.dart';
 import 'package:flutter/material.dart';
 
 import 'Screens/Pages/Nav_Page.dart';
@@ -12,11 +11,11 @@ import 'Screens/Pages/Nav_Page.dart';
 // }
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {

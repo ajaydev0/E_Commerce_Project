@@ -55,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Ktext(
-                            text: "Ajay Dev",
+                            text: "Rahid",
                             color: appcolors.white,
                             weight: FontWeight.bold,
                             size: 25,
@@ -231,6 +231,11 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: ListView(
                         scrollDirection: Axis.horizontal,
                         children: [
+                          productListView(),
+                          productListView(),
+                          productListView(),
+                          productListView(),
+                          productListView(),
                           productListView(),
                           KsBox(
                             w: 10,

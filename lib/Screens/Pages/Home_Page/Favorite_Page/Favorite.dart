@@ -28,20 +28,27 @@ class _Favorite_PageState extends State<Favorite_Page> {
       appBar: AppBar(),
       drawer: Drawer(),
       body: Column(children: [
+        KsBox(h: 40),
         KsBox(
             h: 200,
             child: PageView.builder(
-                itemCount: 5,
+                onPageChanged: (value) {
+                  setState(() {
+                    selectedIndex = value;
+                  });
+                },
+                itemCount: 10,
                 controller:
-                    PageController(initialPage: 1, viewportFraction: 0.8),
+                    PageController(initialPage: 1, viewportFraction: 0.7),
                 itemBuilder: ((context, index) {
                   double scale = Kscale(index);
                   return TweenAnimationBuilder(
                     tween: Tween(begin: scale, end: scale),
-                    duration: Duration(seconds: 2),
+                    duration: Duration(seconds: 1),
                     builder: (context, value, child) {
                       return Transform.scale(
                         scale: value,
+                        child: child,
                       );
                     },
                     child: Kcontainer(

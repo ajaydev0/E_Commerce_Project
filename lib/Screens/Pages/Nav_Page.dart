@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, camel_case_types, prefer_const_constructors_in_immutables, file_names
 
+import 'package:demo_project/Screens/Pages/Home_Page/Favorite_Page/Favorite.dart';
 import 'package:flutter/material.dart';
 
 import '../Home_Screen/HomePage.dart';
@@ -16,7 +17,7 @@ class _Nav_PageState extends State<Nav_Page> {
 
   List pages = [
     MyHomePage(),
-    Container(color: Colors.yellow),
+    Favorite_Page(),
     Container(color: Colors.amber),
     Container(color: Colors.blue),
     Container(color: Colors.pink),

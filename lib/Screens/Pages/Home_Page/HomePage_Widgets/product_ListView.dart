@@ -3,27 +3,32 @@
 import 'package:demo_project/Ui/Ui_Content.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../Ui/Widgets/AppSize_MediaQuery.dart';
 import '../../../../Ui/Widgets/Container_Widget.dart';
 import '../../../../Ui/Widgets/SizeBox_Widget.dart';
 import '../../../../Ui/Widgets/Text_Widget.dart';
 
-Widget productListView() {
-  return Row(
-    crossAxisAlignment: CrossAxisAlignment.start,
+Widget productListView({required BuildContext context}) {
+  return Column(
+    mainAxisAlignment: MainAxisAlignment.center,
+    crossAxisAlignment: CrossAxisAlignment.center,
     children: [
       Padding(
         padding: const EdgeInsets.only(left: 10),
         child: Stack(
           children: [
             Kcontainer(
-              h: 230,
-              w: 150,
+              h: Kh(context: context, value: 30),
+              w: Kw(context: context, value: 41),
               decoration: BoxDecoration(
                   color: appcolors.blue300,
                   borderRadius: BorderRadius.circular(15)),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 10, top: 10),
+              padding: const EdgeInsets.only(
+                left: 10,
+                top: 10,
+              ),
               child: Kcontainer(
                 h: 110,
                 w: 130,
@@ -73,10 +78,11 @@ Widget productListView() {
                   )
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),
+      KsBox(h: 20),
     ],
   );
 }
