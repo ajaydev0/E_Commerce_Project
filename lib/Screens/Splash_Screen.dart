@@ -7,7 +7,7 @@ import 'package:demo_project/Ui/Widgets/SizeBox_Widget.dart';
 import 'package:flutter/material.dart';
 
 import '../Ui/Widgets/AppSize_MediaQuery.dart';
-import 'Sign_In_Screen/Sign_In.dart';
+import 'Auth/Sign_In_Screen/Sign_In.dart';
 
 class Splash_Screen extends StatefulWidget {
   const Splash_Screen({super.key});

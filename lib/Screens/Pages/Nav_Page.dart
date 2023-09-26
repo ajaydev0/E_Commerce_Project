@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, camel_case_types, prefer_const_constructors_in_immutables, file_names
 
-import 'package:demo_project/Screens/Pages/Home_Page/Favorite_Page/Favorite.dart';
 import 'package:flutter/material.dart';
 
-import '../Home_Screen/HomePage.dart';
+import 'Favorite_Page/Favorite.dart';
+import 'Home_Page/HomePage.dart';
 
 class Nav_Page extends StatefulWidget {
   Nav_Page({super.key});

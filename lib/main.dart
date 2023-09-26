@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
+import 'package:demo_project/Screens/Pages/Home_Page/HomePage.dart';
 import 'package:flutter/material.dart';
 
-import 'Screens/Pages/Nav_Page.dart';
 // import 'package:device_preview/device_preview.dart';
 
 // void main() {
@@ -15,7 +15,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({super.key});
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Nav_Page(),
+      home: MyHomePage(),
     );
   }
 }

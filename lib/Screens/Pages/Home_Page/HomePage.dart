@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, file_names, avoid_print
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, file_names
 
 import 'package:demo_project/Ui/Ui_Content.dart';
 import 'package:demo_project/Ui/Widgets/AppSize_MediaQuery.dart';
@@ -10,8 +10,8 @@ import '../../../Ui/Widgets/TextField_Widget.dart';
 import 'Exit_HomePage.dart';
 import 'HomePage_Widgets/Boxicon_HomePage.dart';
 import 'HomePage_Widgets/indigators.dart';
-import 'HomePage_Widgets/product_PageView.dart';
 import 'HomePage_Widgets/product_ListView.dart';
+import 'HomePage_Widgets/product_PageView.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -21,8 +21,19 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int activeIndigator = 0;
-  PageController _controller = PageController();
+  int selectedIndex = 1;
+  final PageController _controller =
+      PageController(initialPage: 1, viewportFraction: .9);
+
+  kscale(int index) {
+    if (selectedIndex == index) {
+      return 1.0;
+    } else {
+      return 0.8;
+    }
+  }
+
+  int activeIndigator = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -42,12 +53,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Stack(
                   children: [
                     Kcontainer(
-                      h: 210,
+                      h: 190,
                       decoration: BoxDecoration(
-                          color: appcolors.blue400,
-                          borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(50),
-                              bottomRight: Radius.circular(50))),
+                        color: appcolors.blue400,
+                        borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(50),
+                          bottomRight: Radius.circular(50),
+                        ),
+                      ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 20, left: 20),
@@ -55,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Ktext(
-                            text: "Rahid",
+                            text: "Ajay Dev",
                             color: appcolors.white,
                             weight: FontWeight.bold,
                             size: 25,
@@ -104,73 +117,142 @@ class _MyHomePageState extends State<MyHomePage> {
                         ],
                       ),
                     ),
+                    //PageView.builder
                     Positioned(
                       top: 80,
-                      left: Kw(context: context, value: 8),
-                      right: Kw(context: context, value: 8),
+                      left: Kw(context: context, value: 0),
+                      right: Kw(context: context, value: 0),
                       child: Kcontainer(
                         h: 180,
                         // width: AppWidth * 80,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(5),
+                          // color: Colors.amber,
                         ),
-                        child: PageView(
+                        child: PageView.builder(
+                          itemCount: 4,
+                          itemBuilder: (context, index) {
+                            double scale = kscale(index);
+                            return TweenAnimationBuilder(
+                                tween: Tween(begin: scale, end: scale),
+                                duration: Duration(seconds: 1),
+                                builder: (context, value, child) {
+                                  return Transform.scale(
+                                    scale: value,
+                                    child: child,
+                                  );
+                                },
+                                child: products(context));
+                          },
                           onPageChanged: (value) {
                             setState(() {
+                              selectedIndex = value;
                               activeIndigator = value;
-                              print(activeIndigator);
+
+                              // print(activeIndigator);
                             });
                           },
                           controller: _controller,
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      top: 140,
+                      child: KsBox(
+                        h: Kh(context: context, value: 20),
+                        w: Kw(context: context, value: 100),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            products(context),
-                            products(context),
-                            products(context),
-                            products(context),
+                            InkWell(
+                              onTap: () {
+                                _controller.previousPage(
+                                    duration: Duration(milliseconds: 400),
+                                    curve: Curves.linear);
+                                // print("Click");
+                              },
+                              child: Kcontainer(
+                                h: 40,
+                                w: 40,
+                                decoration: BoxDecoration(
+                                    color: appcolors.blue400,
+                                    borderRadius: BorderRadius.only(
+                                        topRight: Radius.circular(5),
+                                        bottomRight: Radius.circular(5))),
+                                child: Icon(
+                                  Icons.arrow_back_ios,
+                                  color: appcolors.white,
+                                ),
+                              ),
+                            ),
+                            InkWell(
+                              onTap: () {
+                                _controller.nextPage(
+                                    duration: Duration(milliseconds: 400),
+                                    curve: Curves.linear);
+                              },
+                              child: Kcontainer(
+                                h: 40,
+                                w: 40,
+                                decoration: BoxDecoration(
+                                    color: appcolors.blue400,
+                                    borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(5),
+                                        bottomLeft: Radius.circular(5))),
+                                child: Icon(
+                                  Icons.arrow_forward_ios,
+                                  color: appcolors.white,
+                                ),
+                              ),
+                            ),
                           ],
                         ),
                       ),
                     ),
-
                     //Indigator
                     Positioned(
-                      top: 230,
+                      top: 220,
                       left: Kw(context: context, value: 45),
-                      child: Row(
-                        children: [
-                          Indigator(
-                              color: activeIndigator == 0
-                                  ? appcolors.grey700
-                                  : appcolors.grey400),
-                          KsBox(
-                            w: 5,
-                          ),
-                          Indigator(
-                              color: activeIndigator == 1
-                                  ? appcolors.grey700
-                                  : appcolors.grey400),
-                          KsBox(
-                            w: 5,
-                          ),
-                          Indigator(
-                              color: activeIndigator == 2
-                                  ? appcolors.grey700
-                                  : appcolors.grey400),
-                          KsBox(
-                            w: 5,
-                          ),
-                          Indigator(
-                              color: activeIndigator == 3
-                                  ? appcolors.grey700
-                                  : appcolors.grey400),
-                        ],
+                      child: Kcontainer(
+                        h: 20,
+                        w: 80,
+                        // color: Colors.blue,
+                        child: Row(
+                          children: [
+                            Indigator(
+                                color: activeIndigator == 0
+                                    ? appcolors.grey700
+                                    : appcolors.grey400),
+                            KsBox(
+                              w: 5,
+                            ),
+                            Indigator(
+                                color: activeIndigator == 1
+                                    ? appcolors.grey700
+                                    : appcolors.grey400),
+                            KsBox(
+                              w: 5,
+                            ),
+                            Indigator(
+                                color: activeIndigator == 2
+                                    ? appcolors.grey700
+                                    : appcolors.grey400),
+                            KsBox(
+                              w: 5,
+                            ),
+                            Indigator(
+                                color: activeIndigator == 3
+                                    ? appcolors.grey700
+                                    : appcolors.grey400),
+                          ],
+                        ),
                       ),
                     ),
                   ],
                 ),
               ),
               KsBox(
-                h: 5,
+                h: 10,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -184,11 +266,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   BoxIcon(
                       context: context,
                       icon: Icons.new_releases,
-                      text: "Reviews")
+                      text: "Reviews"),
                 ],
               ),
               KsBox(
-                h: 5,
+                h: 10,
               ),
               Kcontainer(
                 // height: 450,
@@ -227,26 +309,28 @@ class _MyHomePageState extends State<MyHomePage> {
                         ],
                       ),
                     ),
-                    Expanded(
-                      child: ListView(
-                        scrollDirection: Axis.horizontal,
-                        children: [
-                          productListView(),
-                          productListView(),
-                          productListView(),
-                          productListView(),
-                          productListView(),
-                          productListView(),
-                          KsBox(
-                            w: 10,
-                          ),
-                        ],
+                    KsBox(
+                      h: Kh(context: context, value: 35),
+                      w: Kw(context: context, value: 90),
+                      child: ListView.builder(
+                        itemCount: 5,
+                        scrollDirection: Axis.vertical,
+                        itemBuilder: (context, index) {
+                          return Row(
+                            children: [
+                              // KsBox(w: Kw(context: context, value: 3)),
+                              productListView(context: context),
+                              KsBox(w: Kw(context: context, value: 1)),
+                              productListView(context: context)
+                              // KsBox(w: Kw(context: context, value: 3)),
+                            ],
+                          );
+                        },
                       ),
                     ),
                   ],
                 ),
               ),
-              // KsBox(h: 80),
             ],
           ),
         ),

@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-import '../Pages/Nav_Page.dart';
+import '../../Pages/Nav_Page.dart';
 
 Success_DialogBox(context) {
   return showDialog(
