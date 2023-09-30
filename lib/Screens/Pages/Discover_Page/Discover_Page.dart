@@ -1,4 +1,5 @@
-// ignore_for_file: camel_case_types, prefer_const_constructors, file_names, non_constant_identifier_names
+// ignore_for_file: prefer_const_constructors, camel_case_types, file_names
+
 import 'package:demo_project/Ui/Ui_Content.dart';
 import 'package:demo_project/Ui/Widgets/Scaffold_Widget.dart';
 import 'package:flutter/material.dart';
@@ -7,9 +8,14 @@ import '../../../Ui/Widgets/AppSize_MediaQuery.dart';
 import '../../../Ui/Widgets/Container_Widget.dart';
 import '../../../Ui/Widgets/Text_Widget.dart';
 
-class Favorite_Page extends StatelessWidget {
-  const Favorite_Page({super.key});
+class Discover_Page extends StatefulWidget {
+  const Discover_Page({super.key});
 
+  @override
+  State<Discover_Page> createState() => _Discover_PageState();
+}
+
+class _Discover_PageState extends State<Discover_Page> {
   @override
   Widget build(BuildContext context) {
     return KScaffold(

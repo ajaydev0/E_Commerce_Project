@@ -1,6 +1,5 @@
 // ignore_for_file: non_constant_identifier_names, prefer_const_constructors, prefer_const_literals_to_create_immutables, sized_box_for_whitespace, file_names
 import 'dart:io';
-import 'package:demo_project/Ui/Ui_Content.dart';
 import 'package:flutter/material.dart';
 
 Exit_DialogBox(
@@ -56,7 +55,7 @@ Exit_DialogBox(
                         child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               backgroundColor:
-                                  appcolors.blue300, // button Background color
+                                  Colors.grey[400], // button Background color
                             ),
                             onPressed: () {
                               Navigator.pop(context);
@@ -79,7 +78,7 @@ Exit_DialogBox(
                         // width: 180,
                         child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: appcolors.blue300,
+                              backgroundColor: Colors.red,
                             ),
                             onPressed: () => exit(0),
                             //     {
@@ -102,7 +101,7 @@ Exit_DialogBox(
                 ],
               ),
             ),
-            const Positioned(
+            Positioned(
               top: -50,
               child: CircleAvatar(
                 backgroundColor: Colors.white,
@@ -112,7 +111,7 @@ Exit_DialogBox(
                   //Ekhane Rectangle Sixe Use
                   child: Icon(
                     Icons.question_mark,
-                    color: Colors.blue,
+                    color: Colors.red,
                     size: 100,
                   ),
                 ),

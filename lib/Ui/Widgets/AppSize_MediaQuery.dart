@@ -2,12 +2,12 @@
 
 import 'package:flutter/material.dart';
 
-Kh({required BuildContext context, required double value}) {
+Kh({required double value, required BuildContext context}) {
   var maxHeight = MediaQuery.of(context).size.height / 100;
   return maxHeight * value;
 }
 
-Kw({required BuildContext context, required double value}) {
+Kw({required double value, required BuildContext context}) {
   var maxWidth = MediaQuery.of(context).size.width / 100;
   return maxWidth * value;
 }

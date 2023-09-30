@@ -18,8 +18,13 @@ Widget BoxIcon({
       Kcontainer(
         h: 50,
         w: Kw(context: context, value: 14),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20), color: appcolors.blue300),
+        decoration: BoxDecoration(boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(.4),
+            blurRadius: 10.0,
+            offset: const Offset(0, 3),
+          ),
+        ], borderRadius: BorderRadius.circular(20), color: appcolors.blue300),
         child: Padding(
           padding: const EdgeInsets.only(bottom: 2, right: 2),
           child: Icon(icon, color: appcolors.black),
